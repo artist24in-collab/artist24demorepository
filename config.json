@@ -1,0 +1,5 @@
+{
+  "default_template": "webapp-template",
+  "auto_deploy": true,
+  "use_ai": false
+}

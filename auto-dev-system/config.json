@@ -1,0 +1,9 @@
+{
+  "default_template": "webapp-template",
+  "templates": [
+    "webapp-template",
+    "3d-app-template"
+  ],
+  "output_path": "apps",
+  "history_log": "logs/history.txt"
+}

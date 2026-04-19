@@ -1,0 +1,6 @@
+{
+  "ai_mode": true,
+  "models": ["mistral", "tinyllama"],
+  "auto_suggest": true,
+  "fallback_enabled": true
+}
