@@ -146,27 +146,28 @@ def execute_ai_output(output, project_path):
 
     print("🚀 Done.")
 
+import subprocess
+
+import subprocess
+
 def run_action(action, project_path):
     action_type = action.get("type")
 
     print(f"⚙️ Running action: {action_type}")
 
-    if action_type == "deploy_vercel":
+    if action_type == "run_command":
+        command = action.get("command")
+
         try:
-            subprocess.run(
-                ["vercel", "--prod", "--yes"],
-                cwd=project_path
-            )
-        except:
-            print("❌ Vercel deploy failed")
+            subprocess.run(command, shell=True, cwd=project_path)
+        except Exception as e:
+            print(f"❌ Command failed: {e}")
 
-    elif action_type == "setup_database":
-        provider = action.get("provider", "supabase")
-        print(f"🗄️ Suggest using {provider} (manual setup required)")
-
-    elif action_type == "setup_auth":
-        provider = action.get("provider", "firebase")
-        print(f"🔐 Suggest using {provider} (manual setup required)")
+    elif action_type == "deploy_vercel":
+        try:
+            subprocess.run(["vercel", "--prod", "--yes"], cwd=project_path)
+        except Exception as e:
+            print(f"❌ Vercel deploy failed: {e}")
 
     else:
         print(f"⚠️ Unknown action: {action_type}")
