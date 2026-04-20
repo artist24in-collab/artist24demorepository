@@ -1,4 +1,4 @@
-# 📝 Modern Todo Web App
+# 📝 ART!st24 : Modern Todo Web App
 
 A beautiful, modern todo application with a clean UI, full functionality, and persistent storage.
 
